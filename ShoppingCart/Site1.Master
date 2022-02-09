@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="HoangNhatMinh_2019601026.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>
+        <asp:ContentPlaceHolder ID="tieude" runat="server"></asp:ContentPlaceHolder>
+    </title>
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <style>
+        label {
+            width: 100px;
+            display: inline-block;
+            padding-top: 10px;
+        }
+        .xoa {
+            background-color: crimson;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 8px;
+            /* display:block; /*Sẽ làm block cho cả dòng luôn vì không có width*/
+            display: inline-block;
+        }
+        .sua {
+            background-color: #2572c8;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 8px;
+            /* display:block; /*Sẽ làm block cho cả dòng luôn vì không có width*/
+            display: inline-block;
+            }
+        .chitiet {
+            margin-left: 15px;
+            margin-top: 5px;
+            background-color: forestgreen;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 8px;
+            /* display:block; /*Sẽ làm block cho cả dòng luôn vì không có width*/
+            display: inline-block;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hoàng Nhật Minh</h1>
+        </div>
+        <div class="content">
+            <form id="form1" runat="server" action="ShoppingCart.aspx">
+            <div class="content-inner">
+                <asp:ContentPlaceHolder ID="noidung" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            </form>
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-inner">
+                <h2>Danh mục</h2>
+                 <ul>
+                    <li><a href="List.aspx">Danh sách</a></li>
+                     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                        <ItemTemplate>
+                              <li>
+                                <a href='ListByDanhMuc.aspx?MaDanhmuc=<%#Eval("MaDanhmuc") %>'><%#Eval("TenDanhmuc") %></a>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QLSanpham2ConnectionString %>" SelectCommand="SELECT * FROM [Danhmuc]"></asp:SqlDataSource>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; Bài Thi Kết Thúc Học Phần</p>
+        </div>
+    </div>
+</body>
+</html>
