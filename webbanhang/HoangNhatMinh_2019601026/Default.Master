@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="HoangNhatMinh_2019601026.Default" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>
+    <asp:ContentPlaceHolder ID="tieude" runat="server">
+    </asp:ContentPlaceHolder>
+    </title>
+    <link rel="stylesheet" href="StyleSheet.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+         <div class="container">
+        <div class="header">
+            <h1>Kiểm Tra 1</h1>
+            <ul class="nav">
+                <li><a href="#">Porfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="content" runat="server" />
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-inner">
+                <h2>About Me</h2>
+
+                <img class="img-resize" src="./Images/b11.jpg" />
+                <h2>Danh mục</h2>
+                <ul>
+                    <li><a href="List.aspx">Danh sách</a></li>
+                    <li><a href="Add.aspx">Thêm danh sách</a></li>
+                    <li><a href="#">Danh mục 3</a></li>
+                    <li><a href="#">Danh mục 4</a></li>
+
+                </ul>
+                <h2>Lưu trữ</h2>
+                <ul>
+                    <li><a href="#">Nội dung 1</a></li>
+                    <li><a href="#">Nội dung 2</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; HoangNhatMinh_2019601026</p>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
